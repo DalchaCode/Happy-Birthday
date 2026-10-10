@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Happy Birthday ♥</title>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--o:#ff8a1f;--y:#ffe14a}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#000;color:#fff;overflow:hidden;font-family:'VT323','Courier New',monospace;user-select:none;-webkit-tap-highlight-color:transparent}
+#bg,#fx{position:fixed;inset:0;width:100%;height:100%}
+#bg{background:#05000f}#bg.pty{animation:hue 8s linear infinite}
+@keyframes hue{to{filter:hue-rotate(360deg)}}
+.crt{position:fixed;inset:0;z-index:9;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.2) 0 1px,transparent 1px 3px);box-shadow:inset 0 0 130px rgba(0,0,0,.75)}
+#spr{position:fixed;left:0;right:0;margin:0 auto;top:14vh;width:min(52vw,250px);image-rendering:pixelated;opacity:0;transition:opacity .4s;filter:drop-shadow(0 0 20px rgba(255,255,255,.3));animation:fl 3s ease-in-out infinite;z-index:2}
+#spr.in{animation:fl 3s ease-in-out infinite,pop .5s cubic-bezier(.3,1.6,.5,1)}
+body.fin #spr{top:30vh;width:min(40vw,190px)}
+@keyframes fl{50%{transform:translateY(-12px)}}
+@keyframes pop{from{scale:.2;opacity:0}}
+#loc{position:fixed;inset:0;z-index:3;display:grid;place-items:center;text-align:center;padding:20px;font:clamp(16px,4.6vw,32px) 'Press Start 2P',monospace;opacity:0;pointer-events:none}
+#loc.on{animation:lc 2.2s}
+@keyframes lc{0%,100%{opacity:0;letter-spacing:.05em}25%,75%{opacity:1;letter-spacing:.22em}}
+#hud{position:fixed;left:0;right:0;margin:0 auto;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:min(92vw,720px);display:flex;flex-direction:column;gap:12px;z-index:4}
+#box{opacity:0;transition:opacity .3s;position:relative;min-height:140px;border:6px solid #fff;background:#000;padding:16px 22px;font-size:clamp(23px,5.4vw,33px);line-height:1.12}
+#box.shake{animation:sh .12s infinite}@keyframes sh{25%{translate:2px 1px}75%{translate:-2px -1px}}
+#nx{position:absolute;right:14px;bottom:6px;font-style:normal;font-size:22px;animation:bn .7s infinite alternate}
+@keyframes bn{to{transform:translateY(5px)}}
+.sv{display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap}
+#bar{display:flex;gap:10px;min-height:0}
+#bar button,.c button{flex:1;display:flex;align-items:center;justify-content:center;font:inherit;font-size:clamp(21px,5vw,29px);background:#000;color:var(--o);border:4px solid var(--o);padding:6px 4px;cursor:pointer;animation:pop .3s backwards}
+.c button{flex:none;color:#fff;border-color:#fff;padding:6px 22px}
+#bar button::before{content:'';display:none;width:18px;height:16px;margin-right:8px;background:var(--h) center/contain no-repeat;image-rendering:pixelated}
+#bar button:hover::before,#bar button:focus-visible::before{display:block}
+#bar button:hover,.c button:hover,#bar .yl{color:var(--y);border-color:var(--y)}
+#ov{position:fixed;inset:0;z-index:6;pointer-events:none}
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-align:center;padding:20px;pointer-events:auto;font-size:clamp(24px,6vw,36px);background:#000;animation:pop .5s backwards}
+.ti{cursor:pointer;background:transparent}
+.ti h1{font:clamp(24px,8vw,62px) 'Press Start 2P',monospace;line-height:1.3;text-shadow:4px 4px #a02;color:#fff}
+.ti h1 b,.hb b{display:inline-block;animation:fl 2s ease-in-out infinite;animation-delay:calc(var(--i,0)*.12s)}
+.ti h1.t2{color:var(--y);text-shadow:4px 4px #a50}
+.bl{animation:bk 1s steps(2) infinite}@keyframes bk{50%{opacity:0}}
+#in{background:#000;color:#fff;border:0;border-bottom:4px solid #fff;font:inherit;font-size:clamp(30px,8vw,46px);text-align:center;width:min(80vw,360px);outline:0;text-transform:uppercase}
+.row{display:flex;gap:30px}
+.shk{font-size:clamp(40px,12vw,76px);animation:sh .1s infinite;color:var(--y)}
+.hb{position:absolute;top:calc(3vh + env(safe-area-inset-top,0px));left:0;right:0;text-align:center;font:clamp(20px,7vw,52px) 'Press Start 2P',monospace;line-height:1.4;text-shadow:4px 4px #000}
+.hb b{animation:p2 .7s cubic-bezier(.3,1.7,.5,1) backwards var(--d),fl 2s ease-in-out infinite calc(var(--d)*2)}
+.hb div:nth-child(3){color:var(--y)}
+@keyframes p2{from{scale:0;rotate:-40deg}}
+#fade{position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;transition:opacity .7s;z-index:5}
+#mu{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:8;background:none;border:2px solid #fff8;color:#fff;font:22px 'VT323',monospace;width:38px;height:38px;cursor:pointer}
+</style></head><body>
+<div id="bg"></div><canvas id="fx"></canvas><img id="spr" alt="">
+<div id="loc"></div>
+<div id="hud"><div id="box"><span id="tx"></span><i id="nx">▼</i></div><div id="bar"></div></div>
+<div id="fade"></div><div id="ov"></div><button id="mu" aria-label="sound">♪</button><div class="crt"></div>
+<script>
+// ===== EDIT ME =====
+const C={name:'',age:'',from:'Your favorite human'};
+// ===================
+const $=s=>document.querySelector(s),W=ms=>new Promise(r=>setTimeout(r,ms)),R=(a,b)=>a+Math.random()*(b-a);
+let N='Beautiful',AC,MG,muted=0,st=0,skip=0,adv;
+/* pixel sprites */
+const P={k:'#000',w:'#fff',y:'#ffe14a',o:'#ff8a1f',r:'#ff2a2a',n:'#3fbf4f',b:'#2f6fe0',c:'#6ff',p:'#8a4fd0',m:'#ff6fae',g:'#9aa'};
+const mk=s=>{const a=s.split('/'),w=Math.max(...a.map(r=>r.length)),c=document.createElement('canvas');c.width=w;c.height=a.length;const x=c.getContext('2d');a.forEach((r,j)=>[...r].forEach((ch,i)=>{if(P[ch]){x.fillStyle=P[ch];x.fillRect(i,j,1,1)}}));return c.toDataURL()};
+const FL=mk('.....yyyyyy...../..yyyyyyyyyyyy../.yyyyywwwwyyyyy./.yyywwwwwwwwyyy./yyyywwwwwwwwyyyy/yyyywkkwwkkwyyyy/yyyywkkwwkkwyyyy/yyyywwwwwwwwyyyy/yyyywkwwwwkwyyyy/.yyywwkkkkwwyyy./.yyyywwwwwwyyyy./..yyyyyyyyyyyy../.....yyyyyy...../.......nn......./.......nn......./......nnnn......');
+const G={flowey:FL,echo:FL,
+toriel:mk('..ww........ww../.wwww......wwww./.wwwwwwwwwwwwww./.wwwwwwwwwwwwww./wwwwwwwwwwwwwwww/wwwwkkwwwwkkwwww/wwwwkrwwwwrkwwww/.wwwwwwkkwwwwww./..wwwwwkkwwwww../..wwwwkwwkwwww../...wwwwkkwwww.../..ppwwwwwwwwpp../.pppppwwwwppppp./pppppppppppppppp/pppppppppppppppp/pppppppppppppppp'),
+sans:mk('....wwwwwwww..../..wwwwwwwwwwww../.wwwwwwwwwwwwww./.wwkkkwwwwkkkww./.wwkckwwwwkwkww./.wwkkkwwwwkkkww./.wwwwwwkkwwwwww./.wwwwwwwwwwwwww./..wkkkkkkkkkkw../..wkwkwkwkwkww../...wwwwwwwwww.../..bbbbwwwwbbbb../.bbbbbbbbbbbbbb./.bbbbbbbbbbbbbb./.bbbbbbbbbbbbbb./.bbbbbbbbbbbbbb.'),
+papyrus:mk('...wwwwwwwwww.../..wwwwwwwwwwww../..wwwwwwwwwwww../..wkkkwwwwkkkw../..wkwkwwwwkwkw../..wkkkwwwwkkkw../..wwwwwkkwwwww../..wwwwwwwwwwww.../...wkwkwkwkww.../...wwwwwwwwww.../.....wwwwww...../...oooooooooo.../..oooooooooooo../..wwwwwwwwwwww../..wwrrwwwwrrww../..wwwwwwwwwwww..'),
+cake:mk('....y..y..y...../....c..c..c...../....c..c..c...../..mmmmmmmmmmmm../.mmwmmwmmwmmwmm./.wwwwwwwwwwwwww./.yyyyyyyyyyyyyy./.yyyyyyyyyyyyyy./.mmmmmmmmmmmmmm./.wwwwwwwwwwwwww./gggggggggggggggg')};
+document.documentElement.style.setProperty('--h',`url(${mk('.rr...rr./rrrr.rrrr/rrrrrrrrr/rrrrrrrrr/.rrrrrrr./..rrrrr../...rrr.../....r....')})`);
+/* audio */
+const V={flowey:[600,'square'],echo:[760,'sine'],toriel:[330,'triangle'],sans:[135,'square'],papyrus:[210,'sawtooth'],narr:[440,'square'],letter:[520,'triangle']};
+function au(){if(!AC){AC=new(window.AudioContext||window.webkitAudioContext)();MG=AC.createGain();MG.gain.value=.5;MG.connect(AC.destination)}AC.resume()}
+function tone(f,t,d,v=.06,at=0){if(!AC)return;const o=AC.createOscillator(),g=AC.createGain(),s=AC.currentTime+at;o.type=t;o.frequency.value=f;g.gain.setValueAtTime(v,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.connect(g);g.connect(MG);o.start(s);o.stop(s+d)}
+const HB=[523,.75,523,.25,587,1,523,1,698,1,659,2,523,.75,523,.25,587,1,523,1,784,1,698,2,523,.75,523,.25,1047,1,880,1,698,1,659,1,587,2,932,.75,932,.25,880,1,698,1,784,1,698,2];
+function melody(){let t=.2;for(let i=0;i<HB.length;i+=2){const d=HB[i+1]*.4;tone(HB[i],'square',d,.07,t);tone(HB[i]/2,'triangle',d,.05,t);t+=d}}
+mu.onclick=e=>{e.stopPropagation();muted=!muted;if(MG)MG.gain.value=muted?0:.5;mu.textContent=muted?'✕':'♪'};
+/* particles */
+const cv=$('#fx'),cx=cv.getContext('2d');let ps=[],M=null;
+const MD={ruins:{c:['#e0402a','#c0301a','#ff8a3a'],vy:[.6,1.4],vx:[-.5,.3],n:40,s:[4,8]},snow:{c:['#fff','#cfe8ff'],vy:[.5,1.6],vx:[-.6,.2],n:90,s:[2,5]},water:{c:['#4af','#8ef','#26c'],vy:[-.7,-.15],vx:[-.1,.1],n:55,s:[2,6],g:1},hot:{c:['#ff6a00','#ffb000','#ff3000'],vy:[-1.8,-.5],vx:[-.3,.3],n:70,s:[2,5],g:1},star:{c:['#fff','#ffe14a','#8cf'],vy:[.1,.5],vx:[0,0],n:90,s:[2,4],tw:1},party:{c:['#f33','#ff0','#3f6','#4af','#f6f','#fff'],vy:[1,3.5],vx:[-1,1],n:170,s:[4,9]}};
+const rs=()=>{cv.width=innerWidth;cv.height=innerHeight};onresize=rs;rs();
+const np=i=>({x:R(0,cv.width),y:i?R(0,cv.height):(M.vy[0]<0?cv.height+10:-10),vx:R(...M.vx),vy:R(...M.vy),s:R(...M.s)|0,c:M.c[Math.random()*M.c.length|0],ph:R(0,6.28)});
+const mode=m=>{M=MD[m];ps=Array.from({length:M.n},()=>np(1))};
+(function lp(){cx.clearRect(0,0,cv.width,cv.height);if(M)for(const p of ps){p.ph+=.03;p.x+=p.vx+Math.sin(p.ph)*.5;p.y+=p.vy;if(p.y>cv.height+12||p.y<-12||p.x<-12||p.x>cv.width+12)Object.assign(p,np(0));cx.globalAlpha=M.tw?.5+.5*Math.sin(p.ph*3):1;cx.shadowBlur=M.g?10:0;cx.shadowColor=p.c;cx.fillStyle=p.c;cx.fillRect(p.x|0,p.y|0,p.s,p.s)}requestAnimationFrame(lp)})();
+onpointermove=e=>{spr.style.translate=`${(e.clientX/innerWidth-.5)*-18}px ${(e.clientY/innerHeight-.5)*-10}px`};
+/* engine */
+function face(w){if(!w||!G[w]){if(!w){spr.style.opacity=0;spr.dataset.w=''}return}spr.style.opacity=1;if(spr.dataset.w!=w){spr.dataset.w=w;spr.src=G[w];spr.classList.remove('in');void spr.offsetWidth;spr.classList.add('in')}}
+async function say(who,text,wait=true){
+ box.style.opacity=1;face(who);const[f,t]=V[who]||V.narr;
+ let s=text.replace(/{N}/g,N);if(who=='sans')s=s.toLowerCase();if(who=='papyrus')s=s.toUpperCase();
+ const p=who=='narr'?'* ':'';box.classList.toggle('shake',who=='papyrus');nx.style.visibility='hidden';st=1;skip=0;
+ for(let i=0;i<s.length&&!skip;i++){const c=s[i];tx.textContent=p+s.slice(0,i+1);if(c!=' ')tone(f*R(.9,1.1),t,.07,.05);await W(/[.,!?]/.test(c)?160:34)}
+ tx.textContent=p+s;if(!wait){st=0;return}
+ nx.style.visibility='visible';await new Promise(r=>{adv=r;st=2});
+}
+const play=async L=>{for(const l of L)l[0]=='>'?await say('letter',l.slice(1)):await say('narr',l)};
+const go=()=>{if(st==1)skip=1;else if(st==2){st=0;adv()}};
+addEventListener('pointerdown',e=>{if(!e.target.closest('#bar,#mu,.c'))go()});
+addEventListener('keydown',e=>{if(['z','Z','Enter',' '].includes(e.key)){if($('.ti'))ov.firstChild.click();else go()}});
+const pick=items=>new Promise(r=>{bar.innerHTML='';items.forEach((it,i)=>{const b=document.createElement('button');b.textContent=it.t;b.style.animationDelay=i*.06+'s';if(it.y)b.className='yl';b.onclick=e=>{e.stopPropagation();tone(880,'square',.08,.06);bar.innerHTML='';r(i)};bar.append(b)})});
+async function scene(s){
+ fade.style.opacity=1;box.style.opacity=0;tx.textContent='';await W(700);
+ bg.style.background=s.b;mode(s.m);face(null);loc.textContent=s.loc;loc.classList.remove('on');void loc.offsetWidth;loc.classList.add('on');
+ fade.style.opacity=0;await W(2200);
+ for(const[w,t]of s.L)await say(w,t);
+}
+const S=[
+{b:'linear-gradient(#150a24,#4a2377)',m:'ruins',loc:'RUINS',L:[
+['flowey','Howdy!'],['flowey',"Somebody told me it's {N}'s BIRTHDAY. I was going to be mean about it."],['flowey',"...but you're too nice. Fine. Happy birthday. Don't tell anyone I said that."],['toriel','Ah, my child. I baked something to celebrate.'],['toriel','It may be slightly burnt. Love will make up for the rest.']]},
+{b:'linear-gradient(#0a1830,#35639e)',m:'snow',loc:'SNOWDIN',L:[
+['sans',"heya, {N}. it's your birthday, so i got you a present."],['sans',"it's a beautiful day outside. birds are singing. and you're the best part of it."],['papyrus','NYEH HEH HEH! THE GREAT PAPYRUS MADE BIRTHDAY SPAGHETTI IN YOUR HONOR!'],['sans',"the kitchen's a mess-terpiece. but he tried real hard."],['papyrus','{N}, YOU ARE THE SECOND MOST COOL PERSON I KNOW! HAPPY BIRTHDAY!']]},
+{b:'linear-gradient(#01060f,#0b4a5c)',m:'water',loc:'WATERFALL',L:[
+['narr','The cavern glows. Echo flowers sway as you pass.'],['echo','Happy birthday, {N}.'],['echo','Happy birthday, {N}...'],['narr','It keeps repeating it. Some things are worth saying twice.'],['narr','You make a wish. It stays a secret. It is a good one.']]},
+{b:'linear-gradient(#240500,#b04010)',m:'hot',loc:'HOTLAND',L:[
+['narr',"It's really hot here. ...Or maybe that's just you."],['sans',"ok, real talk for a sec. i didn't write this part. someone who adores you did."],['sans',"they said you make every ordinary day feel like a save point. safe, warm, worth coming back to."],['sans','so happy birthday, {N}. you earned the good ending.']]}];
+const A={FIGHT:['You tried to FIGHT.','But {N} brought a fork instead.','The cake never stood a chance.'],
+ACT:{Check:['BIRTHDAY CAKE - ATK 0 DEF 0','A sweet obstacle. 100% love, 0% regrets.'],Compliment:["You told {N} she's amazing.","It's super effective!",'Her cheeks turned red. DEF dropped to 0.'],Hug:['You hugged {N}.','HP fully restored. ATK and DEF no longer matter.']},
+ITEM:{Cake:['You ate the BIRTHDAY CAKE.','HP maxed out. +1 year of wisdom.'],'Our Story':['You opened OUR STORY.',">Every chapter so far is my favorite. I can't wait to read the next one."],Promise:['You found a PROMISE.','>I will keep choosing you, in every timeline. No RESET needed.']}};
+async function battle(){
+ await scene({b:'#000',m:'star',loc:'ENCOUNTER!',L:[]});face('cake');
+ await say('narr','BIRTHDAY CAKE blocks the way!');const seen=new Set();
+ for(;;){
+  await say('narr',['Smells like frosting.','The candles flicker softly.','Birthday music plays in your head.'][Math.random()*3|0],false);
+  const i=await pick([{t:'FIGHT'},{t:'ACT'},{t:'ITEM'},{t:'MERCY',y:seen.size>1}]);
+  if(!i)await play(A.FIGHT);
+  else if(i<3){const K=i==1?'ACT':'ITEM',ks=Object.keys(A[K]),j=await pick([...ks.map(t=>({t})),{t:'BACK'}]);if(j<ks.length){seen.add(K);await play(A[K][ks[j]])}}
+  else if(seen.size>1)break;
+  else await say('narr',"The party isn't over! Try ACT and ITEM first.");
+ }
+}
+async function finale(){
+ await scene({b:'#05000f',m:'star',loc:'SAVE POINT',L:[]});face('cake');
+ await say('narr','The sight of the cake fills you with DETERMINATION.');
+ for(;;){
+  tx.innerHTML=`<div class=sv><span>${N}</span><span>LV ${C.age||'♥'}</span><span>Birthday Land</span></div>`;box.style.opacity=1;
+  if(!await pick([{t:'Save',y:1},{t:'Return'}]))break;
+  await say('narr',"Return? But there's cake. And there is only one good ending.");
+ }
+ tx.innerHTML='<span style="color:#ffe14a">File saved.</span>';[523,659,784,1047].forEach((f,i)=>tone(f,'square',.3,.08,i*.1));
+ await W(1500);document.body.classList.add('fin');bg.className='pty';bg.style.background='linear-gradient(#10002b,#7b2cbf 60%,#ff5d8f)';mode('party');
+ ov.innerHTML='<div class=hb>'+['HAPPY','BIRTHDAY',N.toUpperCase()].map((w,k)=>'<div>'+[...w].map((c,i)=>`<b style="--d:${(k*.45+i*.07).toFixed(2)}s">${c==' '?'&nbsp;':c}</b>`).join('')+'</div>').join('')+'</div>';
+ melody();setInterval(melody,12e3);await W(3600);
+ for(const l of ['Dear {N},',"In every timeline I could imagine, I'd still choose this one. The one with you in it.",'You make hard days lighter and good days brighter. You are my favorite save point.','Thank you for being you. Happy birthday, my love.','- '+C.from])await say('letter',l);
+ await say('narr','Stay determined. Happy birthday, {N}.');
+ await pick([{t:'PLAY AGAIN',y:1}]);location.reload();
+}
+(async()=>{
+ mode('star');
+ ov.innerHTML=`<div class="c ti"><h1>${[...'BIRTHDAY'].map((c,i)=>`<b style="--i:${i}">${c}</b>`).join('')}</h1><h1 class="t2">${[...'TALE'].map((c,i)=>`<b style="--i:${i+8}">${c}</b>`).join('')}</h1><p>a story for someone special</p><p class="bl">[ tap or press Z to begin ]</p></div>`;
+ await new Promise(r=>ov.firstChild.addEventListener('click',r,{once:true}));au();[392,523,659].forEach((f,i)=>tone(f,'square',.25,.08,i*.12));
+ for(;;){
+  ov.innerHTML=`<div class=c><p>Name the fallen human.</p><input id=in maxlength=12 value="${C.name}" placeholder="..." autocomplete=off><button id=ok>CONFIRM</button></div>`;const inp=$('#in');inp.focus();
+  await new Promise(r=>$('#ok').onclick=r);N=inp.value.replace(/[<>&"]/g,'').trim()||'Beautiful';
+  ov.innerHTML=`<div class=c><p>Is this name correct?</p><h2 class=shk>${N}</h2><div class=row><button id=no>NO</button><button id=yes>YES</button></div></div>`;
+  if(await new Promise(r=>{$('#yes').onclick=()=>r(1);$('#no').onclick=()=>r(0)}))break;
+ }
+ ov.innerHTML='';for(const s of S)await scene(s);await battle();await finale();
+})();
+</script></body></html>
